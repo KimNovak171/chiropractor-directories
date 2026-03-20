@@ -730,6 +730,7 @@ function fallbackStateNameFromSlug(stateSlug: string): string {
     .split("-")
     .map((part) => {
       if (!part) return part;
+      if (part.toLowerCase() === "dc") return "DC";
       return part[0]?.toUpperCase() + part.slice(1);
     })
     .join(" ");
@@ -845,6 +846,62 @@ const CANADIAN_REGION_SLUGS = new Set([
   "nunavut",
   "yukon",
 ]);
+
+// Used for generating the USA state directory index even when `data/*_facilities.json`
+// files are missing (e.g. in a fresh clone).
+const US_STATE_SLUGS = [
+  "alabama",
+  "alaska",
+  "arizona",
+  "arkansas",
+  "california",
+  "colorado",
+  "connecticut",
+  "delaware",
+  "florida",
+  "georgia",
+  "hawaii",
+  "idaho",
+  "illinois",
+  "indiana",
+  "iowa",
+  "kansas",
+  "kentucky",
+  "louisiana",
+  "maine",
+  "maryland",
+  "massachusetts",
+  "michigan",
+  "minnesota",
+  "mississippi",
+  "missouri",
+  "montana",
+  "nebraska",
+  "nevada",
+  "new-hampshire",
+  "new-jersey",
+  "new-mexico",
+  "new-york",
+  "north-carolina",
+  "north-dakota",
+  "ohio",
+  "oklahoma",
+  "oregon",
+  "pennsylvania",
+  "rhode-island",
+  "south-carolina",
+  "south-dakota",
+  "tennessee",
+  "texas",
+  "utah",
+  "vermont",
+  "virginia",
+  "washington",
+  "washington-dc",
+  "west-virginia",
+  "wisconsin",
+  "wyoming",
+];
 
 async function loadFacilitiesForState(
   stateSlug: string,
@@ -967,9 +1024,7 @@ export async function getStateSummary(
   const normalizedSlug = safeSlug.toLowerCase();
   const stateNameFromData = facilities[0]?.state;
   const fallbackName =
-    normalizedSlug.length > 0
-      ? normalizedSlug[0]?.toUpperCase() + normalizedSlug.slice(1)
-      : normalizedSlug;
+    normalizedSlug.length > 0 ? fallbackStateNameFromSlug(normalizedSlug) : normalizedSlug;
 
   const stateName = stateNameFromData ?? fallbackName;
 
@@ -1066,7 +1121,7 @@ export async function getOtherCitiesInState(
 export async function getDirectoryIndex(): Promise<
   { stateSlug: string; stateName: string; totalFacilities: number; cities: CitySummary[] }[]
 > {
-  const stateSlugs = Object.keys(STATE_DATA).sort();
+  const stateSlugs = [...US_STATE_SLUGS].sort();
   const summaries = await Promise.all(stateSlugs.map((slug) => getStateSummary(slug)));
   return summaries.map((summary) => ({
     stateSlug: summary.stateSlug,

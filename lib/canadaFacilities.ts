@@ -302,6 +302,22 @@ const PROVINCE_DATA: Record<string, CanadaRawFacility[]> = {
   yukon: yukonFacilities,
 };
 
+const PROVINCE_DISPLAY_NAMES: Record<string, string> = {
+  alberta: "Alberta",
+  "british-columbia": "British Columbia",
+  manitoba: "Manitoba",
+  "new-brunswick": "New Brunswick",
+  "newfoundland-and-labrador": "Newfoundland and Labrador",
+  "northwest-territories": "Northwest Territories",
+  "nova-scotia": "Nova Scotia",
+  nunavut: "Nunavut",
+  ontario: "Ontario",
+  "prince-edward-island": "Prince Edward Island",
+  quebec: "Quebec",
+  saskatchewan: "Saskatchewan",
+  yukon: "Yukon",
+};
+
 function toCanadaFacilityRecord(raw: CanadaRawFacility): CanadaFacilityRecord {
   const addressLines: string[] = [raw.addressLine1];
   if (raw.addressLine2) {
@@ -410,7 +426,10 @@ export async function getProvinceSummary(
     ),
   ).sort((a, b) => a.localeCompare(b));
 
-  const provinceName = facilities[0]?.state ?? safeSlug;
+  const provinceName =
+    facilities[0]?.state ??
+    PROVINCE_DISPLAY_NAMES[safeSlug] ??
+    safeSlug;
 
   return {
     provinceSlug: safeSlug,
