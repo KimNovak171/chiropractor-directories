@@ -30,8 +30,8 @@ export const metadata: Metadata = {
 };
 
 const siteUrl = "https://dentistrydirectories.com";
-const STRIPE_LINK_49 = "https://buy.stripe.com/00weVd8UicXZgsCaLDfAc0g";
-const STRIPE_LINK_99 = "https://buy.stripe.com/4gM5kD8Ui1fh3FQ1b3fAc0h";
+const STRIPE_LINK_49 = "https://buy.stripe.com/aFa9AT2vUe23foyf1TfAc0i";
+const STRIPE_LINK_99 = "https://buy.stripe.com/28E9AT1rQ6zBekubPHfAc0j";
 
 export default function AdvertisePage() {
   const breadcrumbSchema = {
