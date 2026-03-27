@@ -2,36 +2,36 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Advertise | Get Your Urgent Care Clinic in Front of Families",
+  title: "Advertise | Get Your Chiropractic Clinic in Front of Families",
   description:
-    "Featured and premium listings on UrgentCareDirectories.com. Reach Families actively searching for Urgent Care Clinics and services across the United States.",
+    "Featured and premium listings on ChiropractorDirectories.com. Reach Families actively searching for Chiropractic Clinics and services across the United States.",
   alternates: {
     canonical: "/advertise",
     languages: {
-      "en-us": "https://urgentcaredirectories.com/advertise",
+      "en-us": "https://chiropractordirectories.com/advertise",
     },
   },
   openGraph: {
-    title: "Advertise | Get Your Urgent Care Clinic in Front of Families",
+    title: "Advertise | Get Your Chiropractic Clinic in Front of Families",
     description:
-      "A featured listing puts your clinic at the top of your city directory section and in front of high-intent visitors at the moment they are choosing an urgent care service.",
+      "A featured listing puts your clinic at the top of your city directory section and in front of high-intent visitors at the moment they are choosing a chiropractic service.",
     url: "/advertise",
-    siteName: "UrgentCareDirectories.com",
+    siteName: "ChiropractorDirectories.com",
     type: "website",
     images: [
       {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "UrgentCareDirectories.com advertise page preview",
+        alt: "ChiropractorDirectories.com advertise page preview",
       },
     ],
   },
 };
 
-const siteUrl = "https://urgentcaredirectories.com";
-const STRIPE_LINK_49 = "https://buy.stripe.com/cNifZhc6u2jlfoy3jbfAc0k";
-const STRIPE_LINK_99 = "https://buy.stripe.com/7sY8wP9Yme231xI4nffAc0l";
+const siteUrl = "https://chiropractordirectories.com";
+const STRIPE_LINK_49 = "https://buy.stripe.com/28E8wP4E25vx1xIaLDfAc0m";
+const STRIPE_LINK_99 = "https://buy.stripe.com/00w4gzdaye235NY1b3fAc0n";
 
 export default function AdvertisePage() {
   const breadcrumbSchema = {
@@ -41,7 +41,7 @@ export default function AdvertisePage() {
       {
         "@type": "ListItem",
         position: 1,
-        name: "UrgentCareDirectories.com",
+        name: "ChiropractorDirectories.com",
         item: `${siteUrl}/`,
       },
       {
@@ -62,16 +62,16 @@ export default function AdvertisePage() {
 
       <header className="space-y-3">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal">
-          For Urgent Care Clinic Owners
+          For Chiropractic Clinic Owners
         </p>
         <h1 className="text-3xl font-semibold text-navy sm:text-4xl">
           Get Your Clinic in Front of Families Who Are Ready to Choose
         </h1>
         <p className="max-w-3xl text-sm text-slate-600">
-          UrgentCareDirectories.com is visited by Families actively searching for
-          urgent care options across the United States. A featured listing puts
+          ChiropractorDirectories.com is visited by Families actively searching for
+          chiropractic options across the United States. A featured listing puts
           your clinic at the top of your city directory section and in front of
-          high-intent visitors at the moment they are choosing an urgent care service.
+          high-intent visitors at the moment they are choosing a chiropractic service.
         </p>
       </header>
 
@@ -101,7 +101,7 @@ export default function AdvertisePage() {
           </h2>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-slate-600">
             <li>Everything in Featured</li>
-            <li>Included in the Featured Urgent Care Centers section on the homepage</li>
+            <li>Included in the Featured Chiropractic Clinics section on the homepage</li>
             <li>Your clinic logo or photo displayed</li>
             <li>Custom tagline (up to 60 words)</li>
             <li>Cancel anytime</li>

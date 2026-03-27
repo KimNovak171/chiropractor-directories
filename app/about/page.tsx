@@ -2,19 +2,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About This Directory | Urgent Care Directories",
+  title: "About This Directory | Chiropractor Directories",
   description:
-    "Learn about UrgentCareDirectories.com — a trusted directory helping patients and families compare urgent care clinics and services across the US and Canada.",
+    "Learn about ChiropractorDirectories.com — a trusted directory helping patients and families compare chiropractic clinics and services across the US and Canada.",
   alternates: {
     canonical: "/about",
     languages: {
-      "en-us": "https://urgentcaredirectories.com/about",
+      "en-us": "https://chiropractordirectories.com/about",
     },
   },
   openGraph: {
-    title: "About This Directory | Urgent Care Directories",
+    title: "About This Directory | Chiropractor Directories",
     url: "/about",
-    siteName: "UrgentCareDirectories.com",
+    siteName: "ChiropractorDirectories.com",
     type: "website",
   },
 };
@@ -30,19 +30,19 @@ export default function AboutPage() {
           About This Directory
         </h1>
         <p className="max-w-3xl text-sm text-slate-600">
-          UrgentCareDirectories.com is a professional, easy-to-use directory that helps patients and families find and compare urgent care clinic options across the United States and Canada.
+          ChiropractorDirectories.com is a professional, easy-to-use directory that helps patients and families find and compare chiropractic clinic options across the United States and Canada.
         </p>
       </header>
 
       <div className="mt-10 max-w-3xl space-y-6 text-sm text-slate-700">
         <p>
-          We list verified urgent care clinics and services — so you can explore options by state and city, compare contact details and ratings, and make informed decisions. Our listings are sourced from public information and verified where possible; we encourage you to confirm certifications and quality with your state or provincial authority and to visit urgent care centers in person when possible.
+          We list verified chiropractic clinics and services — so you can explore options by state and city, compare contact details and ratings, and make informed decisions. Our listings are sourced from public information and verified where possible; we encourage you to confirm certifications and quality with your state or provincial authority and to visit chiropractic care centers in person when possible.
         </p>
         <p>
           This site is for informational purposes only. We do not endorse any specific facility. Always verify licensing, inspections, and accreditation with the appropriate regulatory body in your area.
         </p>
         <p>
-          Urgent care clinic owners can learn about featured and premium listings on our{" "}
+          Chiropractic clinic owners can learn about featured and premium listings on our{" "}
           <Link href="/advertise" className="font-medium text-teal hover:text-teal-soft">
             Advertise
           </Link>{" "}
