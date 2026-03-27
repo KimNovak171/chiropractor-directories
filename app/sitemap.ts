@@ -18,12 +18,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "daily",
       priority: 1,
     },
-    {
-      url: `${siteUrl}/canada`,
-      lastModified: now,
-      changeFrequency: "daily",
-      priority: 0.95,
-    },
+    ...(canadaDirectory.length > 0
+      ? [
+          {
+            url: `${siteUrl}/canada`,
+            lastModified: now,
+            changeFrequency: "daily" as const,
+            priority: 0.95,
+          },
+        ]
+      : []),
     {
       url: `${siteUrl}/advertise`,
       lastModified: now,
@@ -70,23 +74,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
-  for (const province of canadaDirectory) {
-    if (!province.provinceSlug) continue;
-    routes.push({
-      url: `${siteUrl}/canada/${province.provinceSlug}`,
-      lastModified: now,
-      changeFrequency: "daily",
-      priority: 0.9,
-    });
-
-    for (const city of province.cities) {
-      if (!city.citySlug) continue;
+  if (canadaDirectory.length > 0) {
+    for (const province of canadaDirectory) {
+      if (!province.provinceSlug) continue;
       routes.push({
-        url: `${siteUrl}/canada/${province.provinceSlug}/${city.citySlug}`,
+        url: `${siteUrl}/canada/${province.provinceSlug}`,
         lastModified: now,
-        changeFrequency: "weekly",
-        priority: 0.8,
+        changeFrequency: "daily",
+        priority: 0.9,
       });
+
+      for (const city of province.cities) {
+        if (!city.citySlug) continue;
+        routes.push({
+          url: `${siteUrl}/canada/${province.provinceSlug}/${city.citySlug}`,
+          lastModified: now,
+          changeFrequency: "weekly",
+          priority: 0.8,
+        });
+      }
     }
   }
 

@@ -5,10 +5,16 @@ import { getCanadaDirectoryIndex } from "@/lib/canadaFacilities";
 import { getDirectoryIndex, getStateSummary, getGlobalStats } from "@/lib/stateFacilities";
 
 export async function generateMetadata(): Promise<Metadata> {
+  const canadaDirectory = await getCanadaDirectoryIndex();
   const stats = getGlobalStats();
   const total = stats.totalFacilities.toLocaleString();
-  const title = `Chiropractor Directory USA & Canada | ${total} verified chiropractors`;
-  const description = `Browse ${total} verified chiropractors and chiropractic clinics across the United States and Canada — all rated 3 stars or higher on Google Maps.`;
+  const hasCanada = canadaDirectory.length > 0;
+  const title = hasCanada
+    ? `Chiropractor Directory USA & Canada | ${total} verified chiropractors`
+    : `Chiropractor Directory USA | ${total} verified chiropractors`;
+  const description = hasCanada
+    ? `Browse ${total} verified chiropractors and chiropractic clinics across the United States and Canada — all rated 3 stars or higher on Google Maps.`
+    : `Browse ${total} verified chiropractors and chiropractic clinics across the United States — all rated 3 stars or higher on Google Maps.`;
 
   return {
     title,
@@ -311,7 +317,7 @@ export default async function Home() {
               Are You a Chiropractic Clinic Owner?
             </h2>
             <p className="mt-3 max-w-3xl text-sm text-foreground/90">
-              Get your practice seen by patients actively searching for chiropractic care
+              Get your practice seen by patients actively searching for chiropractic
               care options in your city. Featured listings available.
             </p>
             <div className="mt-5">

@@ -1,3 +1,8 @@
+/**
+ * US state data: every `data/{stateSlug}_facilities.json` discovered via `readdirSync`
+ * is loaded in one batch at module init. Each file uses `fs.readFileSync` inside
+ * `try/catch`; failures yield `[]` — never a hardcoded per-state empty array in source.
+ */
 import type { Facility } from "@/components/FacilityCard";
 import fs from "fs";
 import path from "path";
