@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FacilityCard } from "@/components/FacilityCard";
-import { getCanadaDirectoryIndex } from "@/lib/canadaFacilities";
+import {
+  getCanadaDirectoryIndex,
+  getCanadaStatsForGlobal,
+} from "@/lib/canadaFacilities";
 import { getDirectoryIndex, getStateSummary, getGlobalStats } from "@/lib/stateFacilities";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -52,6 +55,10 @@ export default async function Home() {
     usDirectory.map((s) => getStateSummary(s.stateSlug)),
   );
   const globalStats = getGlobalStats();
+  const canadaStats = getCanadaStatsForGlobal();
+  const usFacilityCount =
+    globalStats.totalFacilities - canadaStats.totalFacilities;
+  const usCityCount = globalStats.totalCities - canadaStats.totalCities;
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -200,6 +207,12 @@ export default async function Home() {
             <p className="mt-2 text-2xl font-semibold text-foreground">
               {globalStats.totalFacilities.toLocaleString()}
             </p>
+            {canadaStats.totalFacilities > 0 && (
+              <p className="mt-1 text-xs text-slate-600">
+                {usFacilityCount.toLocaleString()} US ·{" "}
+                {canadaStats.totalFacilities.toLocaleString()} Canada
+              </p>
+            )}
           </div>
           <div className="rounded-xl border-2 border-teal/30 bg-surface p-4 text-center shadow-sm">
             <p className="text-xs font-semibold uppercase tracking-wide text-teal">
@@ -208,6 +221,12 @@ export default async function Home() {
             <p className="mt-2 text-2xl font-semibold text-foreground">
               {globalStats.totalCities.toLocaleString()}
             </p>
+            {canadaStats.totalFacilities > 0 && (
+              <p className="mt-1 text-xs text-slate-600">
+                {usCityCount.toLocaleString()} US ·{" "}
+                {canadaStats.totalCities.toLocaleString()} Canada
+              </p>
+            )}
           </div>
           <div className="rounded-xl border-2 border-teal/30 bg-surface p-4 text-center shadow-sm">
             <p className="text-xs font-semibold uppercase tracking-wide text-teal">

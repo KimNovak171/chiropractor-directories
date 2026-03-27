@@ -1,15 +1,18 @@
+/**
+ * Canadian provinces & territories: slugs in `ALL_CANADA_PROVINCE_SLUGS` that have a
+ * matching `data/{slug}_facilities.json` are discovered via `readdirSync`, then each
+ * file is loaded with `fs.readFileSync` inside `try/catch` in `loadCanadaProvinceRawArray`
+ * (failures yield `[]`). `PROVINCE_DATA` is filled in one batch at module init — never
+ * hardcode per-province empty arrays in source.
+ *
+ * Maps URLs (see `buildCanadaMapsUrl`):
+ * - With `place_id`: `https://www.google.com/maps/place/?q=place_id:{place_id}` (`q` is
+ *   URI-encoded as a single value).
+ * - Without `place_id`: `https://www.google.com/maps/search/?api=1&query={encoded_address}`.
+ */
 import type { Facility } from "@/components/FacilityCard";
 import fs from "fs";
 import path from "path";
-
-/**
- * All provinces & territories that may have `data/{slug}_facilities.json`.
- * `discoverCanadaProvinceSlugsFromData()` finds which of these files exist and
- * loads each in one batch (`readFileSync` + try/catch → [] per file).
- * Maps: with `place_id`, `https://www.google.com/maps/place/?q=place_id:{place_id}`
- * (full `q` value is URI-encoded). If `place_id` is missing/empty, fall back to
- * `https://www.google.com/maps/search/?api=1&query={encoded_address}`.
- */
 const ALL_CANADA_PROVINCE_SLUGS = [
   "alberta",
   "british-columbia",
@@ -175,6 +178,7 @@ function buildCanadaMapsUrl(
 ): string | undefined {
   const pid = (placeId ?? "").trim();
   if (pid) {
+    // https://www.google.com/maps/place/?q=place_id:{place_id}
     const q = `place_id:${pid}`;
     return `https://www.google.com/maps/place/?q=${encodeURIComponent(q)}`;
   }
