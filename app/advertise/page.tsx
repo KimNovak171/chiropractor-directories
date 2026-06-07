@@ -32,6 +32,7 @@ export const metadata: Metadata = {
 const siteUrl = "https://chiropractordirectories.com";
 const STRIPE_LINK_49 = "https://buy.stripe.com/28E8wP4E25vx1xIaLDfAc0m";
 const STRIPE_LINK_99 = "https://buy.stripe.com/00w4gzdaye235NY1b3fAc0n";
+const STRIPE_LINK_ANNUAL = "https://buy.stripe.com/14AeVd9Ym4rt3FQf1TfAc0S";
 
 export default function AdvertisePage() {
   const breadcrumbSchema = {
@@ -75,7 +76,7 @@ export default function AdvertisePage() {
         </p>
       </header>
 
-      <section className="mt-10 grid gap-6 md:grid-cols-2">
+      <section className="mt-10 grid gap-6 md:grid-cols-3">
         <article className="rounded-xl border border-surface-muted bg-surface p-6 shadow-sm">
           <h2 className="text-lg font-semibold text-navy">
             Featured Listing — $49/month
@@ -93,6 +94,26 @@ export default function AdvertisePage() {
             className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-teal px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
           >
             Pay $49/month with Stripe
+          </a>
+        </article>
+        <article className="rounded-xl border-2 border-teal bg-surface p-6 shadow-sm relative">
+          <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-teal px-3 py-0.5 text-xs font-semibold text-white">Best Value</span>
+          <h2 className="text-lg font-semibold text-navy">Featured Listing — $397/year</h2>
+          <p className="mt-1 text-xs text-slate-500">Save $191 vs monthly</p>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-slate-600">
+            <li>Priority placement at the top of your city directory section</li>
+            <li>Featured badge on your listing</li>
+            <li>Included in the Top Picks section on your state page</li>
+            <li>One full year — billed annually</li>
+            <li>Cancel anytime before renewal</li>
+          </ul>
+          <a
+            href={STRIPE_LINK_ANNUAL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-teal px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
+          >
+            Pay $397/year with Stripe
           </a>
         </article>
         <article className="rounded-xl border border-surface-muted bg-surface p-6 shadow-sm">
