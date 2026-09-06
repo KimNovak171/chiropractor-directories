@@ -25,7 +25,7 @@ export async function generateMetadata({
     await getCanadaCityFacilities(safeProvince, safeCity);
   const count = Array.isArray(cityFacilities) ? cityFacilities.length : 0;
   const title = `Chiropractic Clinics in ${cityName}, ${provinceName}, Canada | Chiropractor Directories`;
-  const description = `Find ${count.toLocaleString()} chiropractic clinics in ${cityName}, ${provinceName}. Compare services and practice details. Verified listings with ratings and reviews.`;
+  const description = `Find ${count.toLocaleString()} chiropractic clinics in ${cityName}, ${provinceName}. Compare services, practice details, ratings, and reviews.`;
 
   return {
     title,
@@ -71,8 +71,8 @@ export default async function CanadaCityPage({ params }: CanadaCityPageProps) {
     citiesCount,
   } = await getCanadaCityFacilities(provinceSlug ?? "", citySlug ?? "");
   const facilities = [...facilitiesRaw].sort((a, b) => {
-    const score = (f: { featured?: boolean; premium?: boolean }) =>
-      f.premium === true ? 2 : f.featured === true ? 1 : 0;
+    const score = (f: { featured?: boolean; premium?: boolean; claimed?: boolean }) =>
+      f.premium === true ? 3 : f.featured === true ? 2 : f.claimed === true ? 1 : 0;
     return score(b) - score(a);
   });
   const otherCities = await getOtherCitiesInProvince(
@@ -169,7 +169,7 @@ export default async function CanadaCityPage({ params }: CanadaCityPageProps) {
           Chiropractic Clinics in {cityName}, {provinceName}
         </h1>
         <p className="max-w-2xl text-sm text-slate-600">
-          {cityName} has {facilities.length.toLocaleString()} verified
+          {cityName} has {facilities.length.toLocaleString()}
           chiropractic clinics including {careTypesText}. Browse all options below,
           each with Google Maps profile links and ratings data where available.
         </p>

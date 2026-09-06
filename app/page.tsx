@@ -13,11 +13,11 @@ export async function generateMetadata(): Promise<Metadata> {
   const total = stats.totalFacilities.toLocaleString();
   const hasCanada = canadaDirectory.length > 0;
   const title = hasCanada
-    ? `Chiropractor Directory USA & Canada | ${total} verified chiropractors`
-    : `Chiropractor Directory USA | ${total} verified chiropractors`;
+    ? `Chiropractor Directory USA & Canada | ${total} listings`
+    : `Chiropractor Directory USA | ${total} listings`;
   const description = hasCanada
-    ? `Browse ${total} verified chiropractors and chiropractic clinics across the United States and Canada — all rated 3 stars or higher on Google Maps.`
-    : `Browse ${total} verified chiropractors and chiropractic clinics across the United States — all rated 3 stars or higher on Google Maps.`;
+    ? `Browse ${total} chiropractors and chiropractic clinics across the United States and Canada — all rated 3 stars or higher on Google Maps.`
+    : `Browse ${total} chiropractors and chiropractic clinics across the United States — all rated 3 stars or higher on Google Maps.`;
 
   return {
     title,
@@ -86,10 +86,10 @@ export default async function Home() {
               Chiropractor Directories
             </p>
             <h1 className="text-balance text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
-              Find Trusted Chiropractors — US States &amp; Canadian Provinces
+              Find Chiropractors — US States &amp; Canadian Provinces
             </h1>
             <p className="max-w-2xl text-balance text-sm sm:text-base text-foreground/80">
-              Verified chiropractors across the United States and Canada—browse by
+              Chiropractor listings across the United States and Canada—browse by
               state or province, then by city. Every practice rated 3★ or higher
               on Google Maps.
             </p>
@@ -99,7 +99,7 @@ export default async function Home() {
             <div className="grid w-full gap-4 py-8 sm:grid-cols-2 lg:grid-cols-4">
               <div className="rounded-xl border-2 border-teal/30 bg-surface p-4 text-center shadow-sm">
                 <p className="text-xs font-semibold uppercase tracking-wide text-teal">
-                  Verified chiropractors
+                  Chiropractor listings
                 </p>
                 <p className="mt-2 text-2xl font-semibold text-foreground">
                   {globalStats.totalFacilities.toLocaleString()}
@@ -149,7 +149,7 @@ export default async function Home() {
               Start with a state directory
             </h2>
             <p className="mt-2 text-sm text-foreground/90">
-              Browse verified chiropractors by state, then drill down by
+              Browse chiropractors by state, then drill down by
               city to compare services and contact details.
             </p>
 
@@ -185,7 +185,7 @@ export default async function Home() {
             Canadian Chiropractor Directories
           </h2>
           <p className="mt-2 text-sm text-slate-600">
-            Browse verified chiropractors by Canadian province. Same
+            Browse chiropractors by Canadian province. Same
             directory experience — province by province, then by city.
           </p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -217,7 +217,7 @@ export default async function Home() {
               Featured chiropractic clinics
             </h2>
             <p className="mt-1 text-sm text-slate-600">
-              Selected practices across our directories — verified listings for
+              Selected practices across our directories — featured listings for
               families comparing chiropractic services options.
             </p>
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -285,7 +285,7 @@ export default async function Home() {
                 Contact chiropractors directly
               </h3>
               <p className="mt-2 text-sm text-slate-600">
-                Use website and maps links to verify details and contact
+                Use website and maps links to confirm current details and contact
                 practices.
               </p>
             </div>
@@ -301,7 +301,7 @@ export default async function Home() {
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             <article className="rounded-xl border-l-4 border-navy border border-surface-muted bg-surface p-5 shadow-sm">
               <h3 className="text-lg font-semibold text-foreground">
-                Google Verified Data
+                Public Business Information
               </h3>
               <p className="mt-2 text-sm text-slate-600">
                 All practices sourced from Google Maps with real ratings and

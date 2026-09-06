@@ -12,6 +12,7 @@ export type Facility = {
   city?: string;
   featured?: boolean;
   premium?: boolean;
+  claimed?: boolean;
   recommended?: boolean;
   logo?: string;
   tagline?: string;
@@ -135,6 +136,7 @@ export function FacilityCard({ facility }: FacilityCardProps) {
     city,
     featured,
     premium,
+    claimed,
     recommended,
     logo,
     tagline,
@@ -144,6 +146,7 @@ export function FacilityCard({ facility }: FacilityCardProps) {
   const isRecommended = recommended === true;
   const showReviewCarefully = recommended === false;
   const isPremium = premium === true;
+  const isClaimed = claimed === true;
   const taglineDisplay =
     isPremium && tagline && tagline.trim()
       ? truncateToWords(tagline.trim(), 60)
@@ -205,6 +208,14 @@ export function FacilityCard({ facility }: FacilityCardProps) {
           ⭐ Featured
         </span>
       )}
+      {isClaimed && !isFeatured && !isPremium && (
+        <span
+          className="absolute right-4 top-4 rounded-full border border-teal bg-white px-2.5 py-0.5 text-xs font-semibold text-teal"
+          aria-label="Claimed listing"
+        >
+          Claimed
+        </span>
+      )}
       {hasLogo && (
         <div className="flex justify-start">
           <img
@@ -214,7 +225,7 @@ export function FacilityCard({ facility }: FacilityCardProps) {
           />
         </div>
       )}
-      <div className={`flex flex-wrap items-start justify-between gap-2 ${isPremium ? "pr-16" : isFeatured ? "pr-20" : ""}`}>
+      <div className={`flex flex-wrap items-start justify-between gap-2 ${isPremium ? "pr-16" : isFeatured ? "pr-20" : isClaimed ? "pr-20" : ""}`}>
         <h3 className="text-xl font-semibold leading-snug text-navy">
           {name}
         </h3>

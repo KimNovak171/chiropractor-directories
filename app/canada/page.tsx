@@ -9,8 +9,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const stats = getCanadaNationwideStats();
   const total = stats.totalFacilities.toLocaleString();
   const provinces = stats.provinceCount.toLocaleString();
-  const title = `Chiropractic Clinics in Canada | ${total} verified listings | Chiropractor Directories`;
-  const description = `Browse ${total} verified chiropractic clinics across ${provinces} provinces and territories—maps, contact info, and Google ratings. Every listing rated 3 stars or higher on Google Maps.`;
+  const title = `Chiropractic Clinics in Canada | ${total} listings | Chiropractor Directories`;
+  const description = `Browse ${total} chiropractic clinics across ${provinces} provinces and territories—maps, contact info, and Google ratings. Every listing rated 3 stars or higher on Google Maps.`;
 
   return {
     title,
@@ -52,7 +52,7 @@ export default async function CanadaLandingPage() {
               Chiropractic Clinics in Canada — Province by Province
             </h1>
             <p className="max-w-2xl text-balance text-sm sm:text-base text-surface/80">
-              Verified chiropractic clinics and services across provinces and territories.
+              Chiropractic clinic and service listings across provinces and territories.
               Every practice rated 3★ or higher on Google Maps.
             </p>
           </div>
@@ -62,7 +62,7 @@ export default async function CanadaLandingPage() {
               Choose a province
             </h2>
             <p className="mt-2 text-sm text-foreground/90">
-              Browse verified chiropractic clinics by province, then drill down
+              Browse chiropractic clinics by province, then drill down
               by city to compare services and contact details.
             </p>
             <p className="mt-2 text-sm font-medium text-foreground">
@@ -99,7 +99,7 @@ export default async function CanadaLandingPage() {
             </div>
             <div className="rounded-xl border-2 border-teal/30 bg-surface p-4 text-center shadow-sm">
               <p className="text-xs font-semibold uppercase tracking-wide text-teal">
-                Verified practices
+                Practice listings
               </p>
               <p className="mt-2 text-2xl font-semibold text-foreground">
                 {caNationwide.totalFacilities.toLocaleString()}

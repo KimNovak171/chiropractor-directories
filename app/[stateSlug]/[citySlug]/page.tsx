@@ -29,7 +29,7 @@ export async function generateMetadata({
     await getCityFacilities(safeState, safeCity);
   const count = Array.isArray(cityFacilities) ? cityFacilities.length : 0;
   const title = `Chiropractic Clinics in ${cityName}, ${stateName} | Chiropractor Directories`;
-  const description = `Find trusted chiropractic services in ${cityName}, ${stateName}—browse ${count.toLocaleString()} verified practices with contact details, maps, and Google ratings so you can choose with confidence.`;
+  const description = `Find chiropractic services in ${cityName}, ${stateName}—browse ${count.toLocaleString()} practice listings with contact details, maps, and Google ratings.`;
 
   return {
     title,
@@ -79,8 +79,8 @@ export default async function CityPage({ params }: CityPageProps) {
     citiesCount,
   } = await getCityFacilities(stateSlug ?? "", citySlug ?? "");
   const facilities = [...facilitiesRaw].sort((a, b) => {
-    const score = (f: { featured?: boolean; premium?: boolean }) =>
-      f.premium === true ? 2 : f.featured === true ? 1 : 0;
+    const score = (f: { featured?: boolean; premium?: boolean; claimed?: boolean }) =>
+      f.premium === true ? 3 : f.featured === true ? 2 : f.claimed === true ? 1 : 0;
     return score(b) - score(a);
   });
   const otherCities = await getOtherCitiesInState(
@@ -186,7 +186,7 @@ export default async function CityPage({ params }: CityPageProps) {
           Chiropractic Clinics in {cityName}, {stateName}
         </h1>
         <p className="max-w-2xl text-sm text-slate-600">
-          {cityName} has {facilities.length.toLocaleString()} verified chiropractic
+          {cityName} has {facilities.length.toLocaleString()} chiropractic
           practices {careTypesClause}. Browse all options below, each with
           Google Maps profile links and ratings data where available.
         </p>

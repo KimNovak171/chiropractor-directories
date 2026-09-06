@@ -75,7 +75,7 @@ export default function AdvertisePage() {
             Featured Listing — $49/month
           </h2>
           <p className="mt-1 text-sm text-slate-600">
-            Get your clinic featured at the top of your city directory page on ChiropractorDirectories.com. Your listing appears above standard listings with a Featured badge, giving you maximum visibility to families actively searching for chiropractic care in your area. Cancel anytime.
+            Get your clinic featured at the top of your city directory page on ChiropractorDirectories.com. Your listing appears above other directory listings with a Featured badge, giving you maximum visibility to families actively searching for chiropractic care in your area. Cancel anytime.
           </p>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-slate-600">
             <li>Priority placement at the top of your city directory section</li>
@@ -96,7 +96,7 @@ export default function AdvertisePage() {
             Featured Listing Annual — $397/year
           </h2>
           <p className="mt-1 text-sm text-slate-600">
-            Get your clinic featured at the top of your city directory page on ChiropractorDirectories.com for a full year. Your listing appears above standard listings with a Featured badge, giving you maximum visibility to families actively searching for chiropractic care in your area. Save $191 compared to monthly billing. Cancel anytime before renewal.
+            Get your clinic featured at the top of your city directory page on ChiropractorDirectories.com for a full year. Your listing appears above other directory listings with a Featured badge, giving you maximum visibility to families actively searching for chiropractic care in your area. Save $191 compared to monthly billing. Cancel anytime before renewal.
           </p>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-slate-600">
             <li>Priority placement at the top of your city directory section</li>

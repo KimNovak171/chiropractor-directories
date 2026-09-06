@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ChiropractorDirectories.com | Chiropractor Directory",
     description:
-      "Trusted resource to explore and compare chiropractors and chiropractic services across North America.",
+      "A resource for exploring and comparing chiropractors and chiropractic services across North America.",
     url: "/",
     siteName: "ChiropractorDirectories.com",
     type: "website",
@@ -110,6 +110,12 @@ gtag('config', 'G-WBD4W4V9LQ');`,
                     Contact
                   </Link>
                   <Link
+                    href="/claim"
+                    className="text-xs font-medium text-white/90 hover:text-teal-soft transition-colors"
+                  >
+                    Claim Your Listing
+                  </Link>
+                  <Link
                     href="/advertise"
                     className="inline-flex items-center rounded-full bg-teal px-4 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-teal-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                   >
@@ -118,7 +124,7 @@ gtag('config', 'G-WBD4W4V9LQ');`,
                 </nav>
               </div>
               <p className="ml-4 hidden max-w-xs text-right text-xs text-white/90 sm:block">
-                Trusted chiropractic care directory for patients and families.
+                Chiropractic care directory for patients and families.
               </p>
             </div>
           </header>
@@ -215,8 +221,8 @@ gtag('config', 'G-WBD4W4V9LQ');`,
                 <Link href="/advertise" className="hover:text-teal-soft">
                   Advertise
                 </Link>
-                <Link href="/advertise" className="hover:text-teal-soft">
-                  For chiropractors
+                <Link href="/claim" className="hover:text-teal-soft">
+                  Claim Your Listing
                 </Link>
                 <Link href="/advertise" className="hover:text-teal-soft">
                   Featured Listing

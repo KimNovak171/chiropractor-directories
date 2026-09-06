@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "About This Directory | Chiropractor Directories",
   description:
-    "Learn about ChiropractorDirectories.com — a trusted directory helping patients and families compare chiropractic clinics and services across the US and Canada.",
+    "Learn about ChiropractorDirectories.com — a directory helping patients and families compare chiropractic clinics and services across the US and Canada.",
   alternates: {
     canonical: "/about",
     languages: {
@@ -36,7 +36,7 @@ export default function AboutPage() {
 
       <div className="mt-10 max-w-3xl space-y-6 text-sm text-slate-700">
         <p>
-          We list verified chiropractic clinics and services — so you can explore options by state and city, compare contact details and ratings, and make informed decisions. Our listings are sourced from public information and verified where possible; we encourage you to confirm certifications and quality with your state or provincial authority and to visit chiropractic care centers in person when possible.
+          We list chiropractic clinics and services so you can explore options by state and city, compare contact details and ratings, and make informed decisions. Our listings are compiled from publicly available business information; we encourage you to confirm current details, certifications, and quality with the appropriate state or provincial authority and to visit chiropractic care centers in person when possible.
         </p>
         <p>
           This site is for informational purposes only. We do not endorse any specific facility. Always verify licensing, inspections, and accreditation with the appropriate regulatory body in your area.

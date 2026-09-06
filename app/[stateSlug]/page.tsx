@@ -25,9 +25,9 @@ export async function generateMetadata({
 
   const { stateName, totalFacilities, cities } = await getStateSummary(safeSlug);
 
-  const title = `Chiropractic Clinics in ${stateName} | ${totalFacilities.toLocaleString()} Verified Practices | ChiropractorDirectories.com`;
+  const title = `Chiropractic Clinics in ${stateName} | ${totalFacilities.toLocaleString()} Listings | ChiropractorDirectories.com`;
 
-  const descriptor = `Browse ${totalFacilities.toLocaleString()} verified chiropractic clinics across ${cities.length.toLocaleString()} ${stateName} cities. Find walk-in clinics and chiropractors — all rated 3 stars or higher on Google Maps.`;
+  const descriptor = `Browse ${totalFacilities.toLocaleString()} chiropractic clinics across ${cities.length.toLocaleString()} ${stateName} cities. Find walk-in clinics and chiropractors — all rated 3 stars or higher on Google Maps.`;
 
   return {
     title,
@@ -116,7 +116,7 @@ export default async function StatePage({ params }: StatePageProps) {
         name: `How many chiropractic clinics are in ${stateName}?`,
         acceptedAnswer: {
           "@type": "Answer",
-          text: `Our directory lists ${totalFacilities.toLocaleString()} verified facilities across ${cities.length.toLocaleString()} cities.`,
+          text: `Our directory lists ${totalFacilities.toLocaleString()} practices across ${cities.length.toLocaleString()} cities.`,
         },
       },
       {
@@ -132,7 +132,7 @@ export default async function StatePage({ params }: StatePageProps) {
         name: "How are clinics selected for this directory?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "All clinics are sourced from Google Maps, verified, and must have a minimum 3-star rating.",
+          text: "Listings are compiled from Google Maps business information and must have a minimum 3-star rating at the time the directory data is collected.",
         },
       },
     ],
@@ -269,7 +269,7 @@ export default async function StatePage({ params }: StatePageProps) {
               Top Picks in {stateName}
             </h2>
             <p className="text-sm text-slate-600">
-              Featured communities in {stateName} — verified listings with priority placement.
+              Featured communities in {stateName} — listings with priority placement.
             </p>
             <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {featuredFacilities.map((facility) => (

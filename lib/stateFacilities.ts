@@ -25,6 +25,7 @@ export type RawFacility = {
   careTypes?: string[];
   featured?: boolean;
   premium?: boolean;
+  claimed?: boolean;
   recommended?: boolean;
   logo?: string | null;
   tagline?: string | null;
@@ -46,6 +47,7 @@ type AlternateFormatFacilityRaw = {
   recommended?: boolean;
   featured?: boolean;
   premium?: boolean;
+  claimed?: boolean;
   logo?: string | null;
   tagline?: string | null;
 };
@@ -97,6 +99,7 @@ function transformAlternateFormatFacilities(
       careTypes: (f.care_type ?? f.type) ? [f.care_type ?? f.type ?? ""] : [],
       featured: f.featured ?? undefined,
       premium: f.premium ?? undefined,
+      claimed: f.claimed ?? undefined,
       recommended: f.recommended ?? undefined,
       logo: f.logo ?? undefined,
       tagline: f.tagline ?? undefined,
@@ -292,6 +295,7 @@ function toFacilityRecord(raw: RawFacility): FacilityRecord {
     reviewCount: raw.reviewCount ?? undefined,
     featured: raw.featured ?? undefined,
     premium: raw.premium ?? undefined,
+    claimed: raw.claimed ?? undefined,
     recommended: raw.recommended ?? undefined,
     logo: raw.logo ?? undefined,
     tagline: raw.tagline ?? undefined,

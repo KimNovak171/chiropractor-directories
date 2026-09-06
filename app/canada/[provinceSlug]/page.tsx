@@ -24,7 +24,7 @@ export async function generateMetadata({
   );
 
   const title = `Chiropractic Clinics in ${provinceName}, Canada | Chiropractor Directories`;
-  const descriptor = `Find ${totalFacilities.toLocaleString()} chiropractic clinics in ${provinceName}, Canada. Compare services and practice details. Verified listings with ratings and reviews.`;
+  const descriptor = `Find ${totalFacilities.toLocaleString()} chiropractic clinics in ${provinceName}, Canada. Compare services, practice details, ratings, and reviews.`;
 
   return {
     title,
@@ -116,7 +116,7 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
         name: `How many chiropractic clinics are in ${provinceName}?`,
         acceptedAnswer: {
           "@type": "Answer",
-          text: `Our directory lists ${totalFacilities.toLocaleString()} verified facilities across ${cities.length.toLocaleString()} cities.`,
+          text: `Our directory lists ${totalFacilities.toLocaleString()} practices across ${cities.length.toLocaleString()} cities.`,
         },
       },
       {
@@ -132,7 +132,7 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
         name: "How are clinics selected for this directory?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "All clinics are sourced from Google Maps, verified, and must have a minimum 3-star rating.",
+          text: "Listings are compiled from Google Maps business information and must have a minimum 3-star rating at the time the directory data is collected.",
         },
       },
     ],
@@ -245,7 +245,7 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
               Top Picks in {provinceName}
             </h2>
             <p className="text-sm text-slate-600">
-              Featured practices in {provinceName} — verified listings with
+              Featured practices in {provinceName} — listings with
               priority placement.
             </p>
             <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
