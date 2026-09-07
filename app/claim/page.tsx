@@ -5,14 +5,14 @@ import { ClaimForm } from "./ClaimForm";
 const CLAIM_PAYMENT_URL = "https://buy.stripe.com/bJebJ1eeC0bd6S27zrfAc0V";
 
 export const metadata: Metadata = {
-  title: "Claim Your Chiropractic Practice Listing",
+  title: "Verify Your Chiropractic Practice Listing",
   description:
-    "Claim and confirm your chiropractic practice listing on ChiropractorDirectories.com for a one-time $19 fee.",
+    "Confirm and verify your chiropractic practice listing on ChiropractorDirectories.com for a one-time $19 fee.",
   alternates: { canonical: "/claim" },
   openGraph: {
-    title: "Claim Your Chiropractic Practice Listing",
+    title: "Verify Your Chiropractic Practice Listing",
     description:
-      "Claim your practice information and receive a Claimed Listing badge and priority placement for a one-time $19 fee.",
+      "Verify your practice information and receive a Verified Listing badge and priority placement for a one-time $19 fee.",
     url: "/claim",
     siteName: "ChiropractorDirectories.com",
     type: "website",
@@ -20,16 +20,16 @@ export const metadata: Metadata = {
 };
 
 const benefits = [
-  "A Claimed Listing badge on your listing",
-  "Placement below Featured listings and above unclaimed listings in your city",
+  "A Verified Listing badge on your listing",
+  "Placement below Featured listings and above unverified listings in your city",
   "Confirmation or correction of your business name, address, phone number, and website link",
   "One-time payment with no subscription or renewal",
 ];
 
 const steps = [
   ["Find your listing", "Open your city directory and copy the page address for the practice you represent."],
-  ["Submit your claim", "Provide your business details and tell us which information should be confirmed or corrected."],
-  ["Complete the $19 payment", "After payment is matched to your request, your claim will be reviewed for the next scheduled directory update."],
+  ["Submit your verification request", "Provide your business details and tell us which information should be confirmed or corrected."],
+  ["Complete the $19 payment", "After payment is matched to your request, your verification will be reviewed for the next scheduled directory update."],
 ];
 
 export default function ClaimPage() {
@@ -40,11 +40,11 @@ export default function ClaimPage() {
           For Chiropractic Practice Owners
         </p>
         <h1 className="text-3xl font-semibold text-navy sm:text-4xl">
-          Claim Your Listing
+          Verify Your Listing
         </h1>
         <p className="max-w-3xl text-sm text-slate-600">
           Confirm that your practice information is current and help visitors
-          distinguish your listing from listings that have not been claimed.
+          distinguish your listing from listings that have not been verified.
         </p>
       </header>
 
@@ -55,12 +55,12 @@ export default function ClaimPage() {
           </p>
           <div className="mt-3 flex flex-wrap items-end gap-x-3 gap-y-1">
             <h2 className="text-2xl font-semibold text-navy">
-              Claimed Listing
+              Verified Listing
             </h2>
             <p className="text-xl font-semibold text-teal">$19 one time</p>
           </div>
           <p className="mt-3 text-sm text-slate-600">
-            There is no monthly charge. The $19 fee covers claiming an existing
+            There is no monthly charge. The $19 fee covers verifying an existing
             listing and confirming or correcting its essential contact
             information during a scheduled directory update.
           </p>
@@ -78,7 +78,7 @@ export default function ClaimPage() {
             href="#listing-request"
             className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-teal px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
           >
-            Claim Your Listing — $19
+            Verify Your Listing — $19
           </a>
           <p className="mt-2 text-center text-xs text-slate-500">
             Submit your listing information before continuing to secure payment.
@@ -87,10 +87,10 @@ export default function ClaimPage() {
 
         <aside className="rounded-xl border border-gold/30 bg-gold/5 p-6">
           <h2 className="text-lg font-semibold text-navy">
-            What “Claimed” Means
+            What “Verified” Means
           </h2>
           <p className="mt-3 text-sm text-slate-700">
-            The listing has been claimed by someone who confirmed that they are
+            The listing has been verified after someone confirmed that they are
             authorized to represent the practice and reviewed the displayed
             contact information.
           </p>

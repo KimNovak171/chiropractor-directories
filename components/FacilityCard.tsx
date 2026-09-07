@@ -211,9 +211,9 @@ export function FacilityCard({ facility }: FacilityCardProps) {
       {isClaimed && !isFeatured && !isPremium && (
         <span
           className="absolute right-4 top-4 rounded-full border border-teal bg-white px-2.5 py-0.5 text-xs font-semibold text-teal"
-          aria-label="Claimed listing"
+          aria-label="Verified listing"
         >
-          Claimed
+          Verified
         </span>
       )}
       {hasLogo && (

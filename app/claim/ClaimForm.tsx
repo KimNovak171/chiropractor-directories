@@ -25,12 +25,12 @@ export function ClaimForm({ paymentUrl }: { paymentUrl?: string }) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          form_name: "Chiropractor directory listing claim",
+          form_name: "Chiropractor directory listing verification",
           ...payload,
         }),
       });
 
-      if (!response.ok) throw new Error("Claim form submission failed");
+      if (!response.ok) throw new Error("Verification form submission failed");
       setStatus("success");
       form.reset();
     } catch {
@@ -41,9 +41,9 @@ export function ClaimForm({ paymentUrl }: { paymentUrl?: string }) {
   if (status === "success") {
     return (
       <div className="rounded-xl border border-teal/30 bg-surface p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-navy">Claim request received</h2>
+        <h2 className="text-xl font-semibold text-navy">Verification request received</h2>
         <p className="mt-2 text-sm text-slate-600">
-          Your listing is not yet claimed. Complete the one-time $19 payment so
+          Your listing is not yet verified. Complete the one-time $19 payment so
           we can match your payment to the request and place it in the next
           scheduled directory update.
         </p>
@@ -100,7 +100,7 @@ export function ClaimForm({ paymentUrl }: { paymentUrl?: string }) {
           className="mt-1 block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-teal focus:outline-none focus:ring-1 focus:ring-teal"
         >
           <option value="" disabled>Select one</option>
-          <option value="Claim an existing listing">Claim an existing listing</option>
+          <option value="Verify an existing listing">Verify an existing listing</option>
           <option value="Correct an existing listing">Correct an existing listing</option>
           <option value="Add a new listing">Add a new listing</option>
         </select>
@@ -155,7 +155,7 @@ export function ClaimForm({ paymentUrl }: { paymentUrl?: string }) {
         disabled={status === "sending"}
         className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-teal px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 disabled:opacity-60"
       >
-        {status === "sending" ? "Sending…" : "Submit Claim Request"}
+        {status === "sending" ? "Sending…" : "Submit Verification Request"}
       </button>
 
       {status === "error" && (
