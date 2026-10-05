@@ -7,6 +7,7 @@ import type { Facility } from "@/components/FacilityCard";
 import fs from "fs";
 import path from "path";
 import { getCanadaStatsForGlobal } from "@/lib/canadaFacilities";
+import { applyListingCorrections } from "@/lib/listingCorrections";
 
 export type RawFacility = {
   id: string;
@@ -245,7 +246,7 @@ function loadUsStateFacilities(stateSlug: string): RawFacility[] {
     const normalized = normalizeStateFacilitiesJson(parsed, stateSlug);
     if (!normalized) return [];
     return transformAlternateFormatFacilities(
-      normalized.facilities,
+      applyListingCorrections(normalized.facilities),
       normalized.stateName,
       stateSlug,
     );
