@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -8,6 +8,22 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xbdznngq";
 
 export function ClaimForm({ paymentUrl }: { paymentUrl?: string }) {
   const [status, setStatus] = useState<Status>("idle");
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const form = formRef.current;
+    if (!form) return;
+
+    const practiceName = form.elements.namedItem("practice_name");
+    const location = form.elements.namedItem("location");
+    if (practiceName instanceof HTMLInputElement && !practiceName.value) {
+      practiceName.value = params.get("practice") ?? "";
+    }
+    if (location instanceof HTMLInputElement && !location.value) {
+      location.value = params.get("location") ?? "";
+    }
+  }, []);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -76,6 +92,7 @@ export function ClaimForm({ paymentUrl }: { paymentUrl?: string }) {
 
   return (
     <form
+      ref={formRef}
       onSubmit={handleSubmit}
       className="rounded-xl border border-surface-muted bg-surface p-6 shadow-sm"
     >
