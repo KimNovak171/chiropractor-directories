@@ -106,7 +106,7 @@ gtag('config', 'G-WBD4W4V9LQ');`,
                     href="/claim"
                     className="text-xs font-medium text-white/90 hover:text-teal-soft transition-colors"
                   >
-                    Verify Your Listing
+                    Add or Edit Your Listing
                   </Link>
                   <Link
                     href="/advertise"
@@ -148,7 +148,7 @@ gtag('config', 'G-WBD4W4V9LQ');`,
                   Advertise
                 </Link>
                 <Link href="/claim" className="hover:text-teal-soft">
-                  Verify Your Listing
+                  Add or Edit Your Listing
                 </Link>
                 <Link href="/advertise" className="hover:text-teal-soft">
                   Featured Listing
